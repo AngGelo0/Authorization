@@ -1,0 +1,144 @@
+<!DOCTYPE hmtml>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-ua-Compatible" content="IE=edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>GeloSphere</title>
+    <link rel="stylesheet" href="authorization.css">
+  </head>
+  <body>
+
+    <header>
+      <h2 class="logo">Gelosphere</h2>
+      <nav class="navigation">
+        <button class="btnRegister" onclick="website()">Wihout Authorization</button>
+        <button class="btnLogin-popup">With Authorization</button>
+      </nav>
+      
+    </header>
+      
+    <div class="wrapper">
+      <span class="icon-close"><ion-icon name="close">
+      </ion-icon>
+      </span>
+
+      <div class="form-box login">
+        <h2>Authorization Required</h2>
+        <form action="#">
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="mail"></ion-icon>
+            </span>
+            <input type="email" id="email" required>
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="lock-closed"></ion-icon>
+            </span>
+            <input type="password" id="password" required>
+            <label>Password</label>
+          </div>
+          <div class="remember-forgot">
+            <label>
+              <input type="checkbox">
+              Remember me
+            </label>
+            <a href="#">Forgot Password?</a>
+          </div>
+          <button type="button" class="btn" onclick="func()">Login</button>
+          <div class="login-register">
+            <p>
+              Don't have an account?
+              <a href="#" class="register-link">Register</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-box register">
+        <h2>Registration</h2>
+        <form id="registrationForm" method="post" action="#" >
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="person"></ion-icon>
+            </span>
+            <input type="text" name="Username" required>
+            <label>Username</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="mail"></ion-icon>
+            </span>
+            <input type="email" name="Email" required>
+            <label>Email</label>
+          </div>
+          <div class="input-box">
+            <span class="icon">
+              <ion-icon name="lock-closed"></ion-icon>
+            </span>
+            <input type="password" name="Password" required>
+            <label>Password</label>
+          </div>
+          <div class="remember-forgot">
+            <label>
+              <input type="checkbox" name="I agree to the terms & conditions" value="✓">
+              I agree to the terms & conditions
+            </label>
+          </div>
+          <button type="submit" class="btn" onclick="register()">Register</button>
+          <div class="login-register">
+            <p>Already have an account?
+              <a href="#" class="login-link">Login</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script>
+        function website() {
+            window.location.href = 'https://www.pup.edu.ph/';
+        }
+    </script>
+    <script>
+
+      function register() {
+        var username = document.getElementById("regUsername").value;
+        var email = document.getElementById("regEmail").value;
+        var password = document.getElementById("regPassword").value;
+        var terms = document.getElementById("termsAndConditions").checked;
+
+        if (terms) {
+          // Save registration data to local storage
+          var userData = {
+            username: username,
+            email: email,
+            password: password
+          };
+
+          localStorage.setItem("userData", JSON.stringify(userData));
+          alert("Registration successful!");
+        } else {
+          alert("Please agree to the terms & conditions.");
+        }
+      }
+
+      function func(){
+        var email = document.getElementById("email").value;
+        var pass = document.getElementById("password").value;
+        if (email == 'admin@gmail.com' && pass == 'admin'){
+        alert("successfull!");
+        window.location.href = "https://www.pup.edu.ph/";
+      }
+      else{
+        alert("Wrong entry invalid");
+      }
+    }
+    </script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
